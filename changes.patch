@@ -1,0 +1,36 @@
+diff --git a/changes.patch b/changes.patch
+index 66e4f60..e69de29 100644
+--- a/changes.patch
++++ b/changes.patch
+@@ -1,18 +0,0 @@
+-diff --git a/src/components/Plugins/Plugins.jsx b/src/components/Plugins/Plugins.jsx
+-index ad318e6..0018821 100644
+---- a/src/components/Plugins/Plugins.jsx
+-+++ b/src/components/Plugins/Plugins.jsx
+-@@ -416,11 +416,11 @@ export class Plugins extends Component {
+-                             <p style={{ fontSize: '1.25em', margin: '0', color: 'black', fontWeight: '600' }}>
+-                                 {pluginsCount} plugins found
+-                             </p>
+--                            Showing {paginationOffset + 1} to {' '}
+-+                            Showing {Math.min(pluginsCount, paginationOffset + 1} to {' '}
+-                             {
+-                               // eslint-disable-next-line no-nested-ternary
+-                               (paginationOffset + paginationLimit > plugins.totalCount) ?
+--                                (plugins.totalCount === -1 ? 1 : plugins.totalCount)
+-+                                pluginsCount
+-                                 :
+-                                 (paginationOffset > 0) ?
+-                                   paginationOffset
+diff --git a/src/components/Plugins/Plugins.jsx b/src/components/Plugins/Plugins.jsx
+index ddea2f9..51047d2 100644
+--- a/src/components/Plugins/Plugins.jsx
++++ b/src/components/Plugins/Plugins.jsx
+@@ -419,7 +419,7 @@ export class Plugins extends Component {
+                             Showing {Math.min(pluginsCount, paginationOffset + 1)} to {' '}
+                             {
+                               // eslint-disable-next-line no-nested-ternary
+-                              (paginationOffset + paginationLimit > plugins.totalCount) ?
++                              (paginationOffset + paginationLimit > pluginsCount) ?
+                                 pluginsCount
+                                 :
+                                 (paginationOffset > 0) ?

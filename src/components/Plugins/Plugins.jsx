@@ -416,11 +416,11 @@ export class Plugins extends Component {
                             <p style={{ fontSize: '1.25em', margin: '0', color: 'black', fontWeight: '600' }}>
                                 {pluginsCount} plugins found
                             </p>
-                            Showing {paginationOffset + 1} to {' '}
+                            Showing {Math.min(pluginsCount, paginationOffset + 1)} to {' '}
                             {
                               // eslint-disable-next-line no-nested-ternary
-                              (paginationOffset + paginationLimit > plugins.totalCount) ?
-                                plugins.totalCount
+                              (paginationOffset + paginationLimit > pluginsCount) ?
+                                pluginsCount
                                 :
                                 (paginationOffset > 0) ?
                                   paginationOffset
