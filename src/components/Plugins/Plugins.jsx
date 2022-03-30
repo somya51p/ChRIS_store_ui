@@ -420,7 +420,7 @@ export class Plugins extends Component {
                             {
                               // eslint-disable-next-line no-nested-ternary
                               (paginationOffset + paginationLimit > plugins.totalCount) ?
-                                plugins.totalCount
+                                (plugins.totalCount === -1 ? 1 : plugins.totalCount)
                                 :
                                 (paginationOffset > 0) ?
                                   paginationOffset
