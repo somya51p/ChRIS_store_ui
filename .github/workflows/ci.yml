@@ -13,7 +13,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-
       - name: Get git tag
         id: git_info
         if: startsWith(github.ref, 'refs/tags/')
@@ -65,12 +64,12 @@ jobs:
           push: true
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
-      
-      - name: test
-        uses: actions/checkout@v2
-        uses: borales/actions-yarn@v2.3.0
-        with:
-          cmd: install
-        uses: borales/actions-yarn@v2.3.0
-        with:
-          cmd: test
+
+      # - name: test
+      #   uses: actions/checkout@v2
+      #   uses: borales/actions-yarn@v2.3.0
+      #   with:
+      #     cmd: install
+      #   uses: borales/actions-yarn@v2.3.0
+      #   with:
+      #     cmd: test
