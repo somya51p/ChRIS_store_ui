@@ -8,6 +8,22 @@ on:
     branches: [master]
 
 jobs:
+
+  build:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: borales/actions-yarn@v2.3.0
+        with:
+          cmd: install # will run `yarn install` command
+      - uses: borales/actions-yarn@v2.3.0
+        with:
+          cmd: build # will run `yarn build` command
+      - uses: borales/actions-yarn@v2.3.0
+        with:
+          cmd: test # will run `yarn test` command
+          
   publish:
     if: github.event_name == 'push' || github.event_name == 'release'
     runs-on: ubuntu-latest
@@ -65,11 +81,11 @@ jobs:
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
 
-      # - name: test
-      #   uses: actions/checkout@v2
-      #   uses: borales/actions-yarn@v2.3.0
-      #   with:
-      #     cmd: install
-      #   uses: borales/actions-yarn@v2.3.0
-      #   with:
-      #     cmd: test
+      - name: test
+        uses: actions/checkout@v2
+        uses: borales/actions-yarn@v2.3.0
+        with:
+          cmd: install
+        uses: borales/actions-yarn@v2.3.0
+        with:
+          cmd: test
