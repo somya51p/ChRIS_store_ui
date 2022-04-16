@@ -418,7 +418,7 @@ export class Plugins extends Component {
                             </p>
                             Showing {Math.min(pluginsCount, paginationOffset + 1)} to {' '}
                             {
-                              // eslint-disable-next-line no-nested-ternary
+                              eslint-disable-next-line no-nested-ternary
                               (paginationOffset + paginationLimit > pluginsCount) ?
                                 pluginsCount
                                 :
